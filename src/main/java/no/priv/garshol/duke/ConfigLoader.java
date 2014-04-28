@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.io.InputStream;
 import java.io.IOException;
+
 import org.xml.sax.XMLReader;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -28,6 +29,7 @@ import no.priv.garshol.duke.datasources.ColumnarDataSource;
 import no.priv.garshol.duke.datasources.JDBCDataSource;
 import no.priv.garshol.duke.datasources.JNDIDataSource;
 import no.priv.garshol.duke.datasources.NTriplesDataSource;
+import no.priv.garshol.duke.datasources.SesameDataSource;
 import no.priv.garshol.duke.datasources.SparqlDataSource;
 
 /**
@@ -117,6 +119,9 @@ public class ConfigLoader {
       } else if (localName.equals("jdbc")) {
         datasource = new JDBCDataSource();
         currentobj = datasource;
+      } else if (localName.equals("sesame")) {
+          datasource = new SesameDataSource();
+          currentobj = datasource;
       } else if (localName.equals("jndi")) {
         datasource = new JNDIDataSource();
         currentobj = datasource;
@@ -212,6 +217,7 @@ public class ConfigLoader {
           comparator = (Comparator) instantiate(content.toString());
       } else if (localName.equals("csv") ||
                localName.equals("jdbc") ||
+               localName.equals("sesame") ||
                localName.equals("jndi") ||
                localName.equals("ntriples") ||
                localName.equals("sparql") ||
