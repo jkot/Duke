@@ -1,5 +1,5 @@
 
-# RELAX-NG schema (compact syntax) for the Duke configuration file syntax.
+# RELAX-NG schema (compact syntax) for the Duke dukeConfiguration file syntax.
 # Currently not being used for validation, but exists for documentation
 # purposes, if nothing else.
 
