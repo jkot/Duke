@@ -28,6 +28,8 @@ public class CSVDataSource extends ColumnarDataSource {
   private boolean hasheader;
   private char separator;
 
+  private int count = 0;
+
   public CSVDataSource() {
     super();
     this.hasheader = true;
@@ -198,6 +200,7 @@ public class CSVDataSource extends ColumnarDataSource {
     }
 
     public Record next() {
+      System.out.println("Record " + ++count);
       Record thenext = nextrecord;
       findNextRecord();
       return thenext;
